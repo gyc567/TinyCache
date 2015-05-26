@@ -4,6 +4,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+
 /**
  * @author eric guo 
  * @email  gyc567@aol.com
@@ -24,12 +25,11 @@ public class TinyCache<K,V> implements ICache<K, V>{
 	}
 
 	public V get(K key) {
-		
-		
 		return map.get(key);
 	}
 
 	public boolean put(K key, V value) {
+		
 		V oldValue=map.put(key, value);
 		if(null!=oldValue)
 		{
@@ -42,13 +42,12 @@ public class TinyCache<K,V> implements ICache<K, V>{
 			map.remove(k);
 		}
 		
-		
 		return true;
 	}
 
 	public boolean remove(Object key) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return queue.removeFirstOccurrence(key)&&(null!=map.remove(key));
 	}
 
 	/* (non-Javadoc)

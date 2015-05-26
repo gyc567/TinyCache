@@ -38,7 +38,7 @@ public class TinyCacheTest {
 	}
 
 	@Test
-	public void testPut() {
+	public void testPutAndGet() {
 		String key="0";
 		String value="a";
 		Assert.assertTrue(cache.put(key, value));
@@ -53,6 +53,26 @@ public class TinyCacheTest {
 		
 		Assert.assertNull(cache.get("0"));
 		Assert.assertEquals("a12", cache.get("012"));
+	}
+	@Test
+	public void testRemove() {
+		String key="0";
+		String value="a";
+		Assert.assertTrue(cache.put(key, value));
+		
+		String key1="01";
+		String value1="a1";
+		Assert.assertTrue(cache.put(key1, value1));
+		Assert.assertEquals("a", cache.get("0"));
+		Assert.assertEquals("a1", cache.get("01"));
+		cache.remove(key1);
+		String key12="012";
+		String value12="a12";
+		Assert.assertTrue(cache.put(key12, value12));
+		
+		Assert.assertNotNull(cache.get(key));
+		Assert.assertNull(cache.get(key1));
+		
 	}
 
 }
