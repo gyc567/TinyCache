@@ -9,14 +9,14 @@ import java.util.Map;
  * @author eric guo 
  * @email  gyc567@aol.com
  */
-public class TinyCache<K,V> implements ICache<K, V>{
+public class TinyLRUCache<K,V> implements ICache<K, V>{
 	
 	private  Deque<K> queue;
 	private  Map<K,V> map;
 	
 	private int limit=100;
 	
-	public TinyCache(int limit) {
+	public TinyLRUCache(int limit) {
 		super();
 		this.queue=new LinkedList<K>();
 		this.map=new HashMap<K, V>();
