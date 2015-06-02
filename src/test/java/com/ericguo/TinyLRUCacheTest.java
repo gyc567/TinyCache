@@ -54,6 +54,7 @@ public class TinyLRUCacheTest {
 		assertThat(cache.put(key12, value12), is(true));
 		assertThat(cache.get(key), not(value));
 		assertThat(cache.get(key12), is(value12));
+		assertThat(cache.size(), is(2));
 	}
 	@Test
 	public void testRemove() {
@@ -67,6 +68,7 @@ public class TinyLRUCacheTest {
 		Assert.assertEquals("a", cache.get("0"));
 		Assert.assertEquals("a1", cache.get("01"));
 		cache.remove(key1);
+		assertThat(cache.size(), is(1));
 		String key12="012";
 		String value12="a12";
 		Assert.assertTrue(cache.put(key12, value12));
