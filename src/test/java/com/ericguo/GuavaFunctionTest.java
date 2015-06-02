@@ -53,6 +53,7 @@ public class GuavaFunctionTest {
 			{
 				put("love", 1);
 				put("miss", 5);
+				put("u", 7);
 			}
 		};
 		Function<String, Integer> mapFun;
@@ -68,9 +69,11 @@ public class GuavaFunctionTest {
 		};
 
 		assertThat(mapFun.apply("love"), is(1));
+		assertThat(mapFun.apply("u"), is(7));
 		Function<String, Integer> compose = Functions
 				.compose(squareFun, mapFun);
 		assertThat(compose.apply("miss"), is(25));
+		assertThat(compose.apply("u"), is(49));
 
 	}
 	@Test
@@ -82,6 +85,7 @@ public class GuavaFunctionTest {
 		List<List<String>> lists = ImmutableList.of(list1, list2, list3);
 		ArrayList<Integer> integerArrayList = Lists.newArrayList(Iterables.transform(Iterables.concat(lists), StringToIntegerFunction.INSTANCE));
 		assertThat(integerArrayList.get(0),is(1));
+		assertThat(integerArrayList.get(5),is(6));
 	}
 	
 	public final static class StringToIntegerFunction implements Function<String,Integer>
