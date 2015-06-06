@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ericguo;
+package com.github.ericguo;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

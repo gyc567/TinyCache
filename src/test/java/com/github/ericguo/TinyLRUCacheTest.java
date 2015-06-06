@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ericguo;
+package com.github.ericguo;
 
 
 
