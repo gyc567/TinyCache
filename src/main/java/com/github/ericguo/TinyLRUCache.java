@@ -1,4 +1,4 @@
-package com.ericguo;
+package com.github.ericguo;
 
 import java.util.Deque;
 import java.util.HashMap;

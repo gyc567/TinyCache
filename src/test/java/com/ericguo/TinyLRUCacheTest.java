@@ -13,6 +13,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.github.ericguo.ICache;
+import com.github.ericguo.TinyLRUCache;
+
 
 /**
  * @author eric guo 
